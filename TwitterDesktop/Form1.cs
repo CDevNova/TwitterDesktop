@@ -2,10 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Net;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Tweetinvi;
+using Tweetinvi.Parameters;
 using TweetSharp;
 using Twitterizer;
 
@@ -25,6 +27,7 @@ namespace TwitterDesktop
         public Form1()
         {
             InitializeComponent();
+            picTweet.AllowDrop = true;
         }
 
         private XMLStuff myXML;
@@ -181,17 +184,65 @@ namespace TwitterDesktop
 
             Auth.SetUserCredentials(TwitterStuff.consumerKey, TwitterStuff.consumerSecret, LoginInfo[2], LoginInfo[3]);
             string tweetmessage = txtTweet.Text;
-            try
+            if (picTweet.Image != null)
             {
-                Tweet.PublishTweet(tweetmessage);
+
+                byte[] file = File.ReadAllBytes(imagepath);
+                var media = Upload.UploadBinary(file);
+                try
+                {
+                    var tweet = Tweet.PublishTweet(tweetmessage, new PublishTweetOptionalParameters
+                    {
+                        Medias = { media }
+                    });
+                    
+                }
+                catch (Exception ex)
+                {
+                }
+                MessageBox.Show("Successfully sent tweet!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //TwitterStuff frmTwitter = new TwitterStuff();
+                //frmTwitter.tweetIt(tweetmessage);
+                txtTweet.Clear();
             }
-            catch (Exception ex)
+            else
             {
+                try
+                {
+                    Tweet.PublishTweet(tweetmessage);
+                }
+                catch (Exception ex)
+                {
+                }
+                MessageBox.Show("Successfully sent tweet!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //TwitterStuff frmTwitter = new TwitterStuff();
+                //frmTwitter.tweetIt(tweetmessage);
+                txtTweet.Clear();
             }
-            MessageBox.Show("Successfully sent tweet!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //TwitterStuff frmTwitter = new TwitterStuff();
-            //frmTwitter.tweetIt(tweetmessage);
-            txtTweet.Clear();
+            
+            
+        }
+
+        private void PanLoggedIn_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void PicTweet_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
+        }
+
+        public string imagepath;
+
+        private void PicTweet_DragDrop(object sender, DragEventArgs e)
+        {
+            foreach (string pic in ((string[])e.Data.GetData(DataFormats.FileDrop)))
+            {
+                Image img = Image.FromFile(pic);
+                imagepath = pic;
+                picTweet.Image = img;
+            }
         }
     }
 }

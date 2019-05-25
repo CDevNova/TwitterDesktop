@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.toolBar = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnLogout = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnLogin = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -43,10 +44,11 @@
             this.lstStatus = new System.Windows.Forms.ListBox();
             this.lblScreenname = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.picTweet = new System.Windows.Forms.PictureBox();
             this.toolBar.SuspendLayout();
             this.panLoggedIn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picTweet)).BeginInit();
             this.SuspendLayout();
             // 
             // toolBar
@@ -61,6 +63,17 @@
             this.toolBar.Size = new System.Drawing.Size(802, 39);
             this.toolBar.TabIndex = 0;
             this.toolBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ToolBar_MouseMove);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(313, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(148, 16);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Created by: Nova#8400";
             // 
             // btnLogout
             // 
@@ -170,6 +183,7 @@
             // 
             // panLoggedIn
             // 
+            this.panLoggedIn.Controls.Add(this.picTweet);
             this.panLoggedIn.Controls.Add(this.lblFollowers);
             this.panLoggedIn.Controls.Add(this.label1);
             this.panLoggedIn.Controls.Add(this.btnSendTweet);
@@ -184,6 +198,7 @@
             this.panLoggedIn.Size = new System.Drawing.Size(802, 417);
             this.panLoggedIn.TabIndex = 1;
             this.panLoggedIn.Visible = false;
+            this.panLoggedIn.Paint += new System.Windows.Forms.PaintEventHandler(this.PanLoggedIn_Paint);
             // 
             // lblFollowers
             // 
@@ -277,7 +292,7 @@
             this.txtTweet.Location = new System.Drawing.Point(117, 38);
             this.txtTweet.Multiline = true;
             this.txtTweet.Name = "txtTweet";
-            this.txtTweet.Size = new System.Drawing.Size(489, 367);
+            this.txtTweet.Size = new System.Drawing.Size(489, 193);
             this.txtTweet.TabIndex = 4;
             // 
             // bunifuFlatButton2
@@ -340,16 +355,18 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
-            // label2
+            // picTweet
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(313, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 16);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Created by: Nova#8400";
+            this.picTweet.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picTweet.BackgroundImage")));
+            this.picTweet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picTweet.Location = new System.Drawing.Point(117, 238);
+            this.picTweet.Name = "picTweet";
+            this.picTweet.Size = new System.Drawing.Size(489, 167);
+            this.picTweet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picTweet.TabIndex = 9;
+            this.picTweet.TabStop = false;
+            this.picTweet.DragDrop += new System.Windows.Forms.DragEventHandler(this.PicTweet_DragDrop);
+            this.picTweet.DragEnter += new System.Windows.Forms.DragEventHandler(this.PicTweet_DragEnter);
             // 
             // Form1
             // 
@@ -368,6 +385,7 @@
             this.panLoggedIn.ResumeLayout(false);
             this.panLoggedIn.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picTweet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -389,6 +407,7 @@
         private System.Windows.Forms.Label lblFollowers;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox picTweet;
     }
 }
 
