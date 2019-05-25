@@ -9,11 +9,26 @@ Twitter for Desktop is a C# program which allows you to tweet from your desktop 
 This project requires [Visual Studio](https://visualstudio.microsoft.com/downloads/) to run and build the program.
 
 To build the program:
-- Change Debug to Release
- ![Change Debug to Release](https://i.imgur.com/WgiW2kx.png)
+- Right click References
+
+ ![Right click References](https://i.imgur.com/NEgAyxf.png)
+- Click Add Reference
+
+ ![Click Add Reference](https://i.imgur.com/3Qt2nlN.png)
+- Click Browse
+
+ ![Click Browse](https://i.imgur.com/vtaJYxG.png)
+- Select the 2 DLLs and click OK
+
+![Select the 2 DLLs and click OK](https://i.imgur.com/vKSXolf.png)
+- Click OK
+
+![Click OK](https://i.imgur.com/81KWsJZ.png)
 - Click Build
+
  ![Click Build](https://i.imgur.com/LhsrOwC.png)
 - Click Build Solution
+
  ![Click Build Solution](https://i.imgur.com/4TC4AGs.png)
 
 ## Usage
