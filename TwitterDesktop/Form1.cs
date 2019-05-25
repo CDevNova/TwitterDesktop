@@ -204,6 +204,7 @@ namespace TwitterDesktop
                 //TwitterStuff frmTwitter = new TwitterStuff();
                 //frmTwitter.tweetIt(tweetmessage);
                 txtTweet.Clear();
+                picTweet.Image = null;
             }
             else
             {
