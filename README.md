@@ -33,3 +33,7 @@ Please make sure to update tests as appropriate.
 
 ## License
 [MIT](https://github.com/CDevNova/TwitterDesktop/blob/master/License.md)
+
+## Buy me a coffee
+
+I would always appreciate if you bought me [a coffee](https://www.buymeacoffee.com/DeveloperNova).
