@@ -2,7 +2,7 @@
 
 Twitter for Desktop is a C# program which allows you to tweet from your desktop without a browser.
 
-![Screenshot of  Program](https://i.imgur.com/nDEzkT5.png)
+![Screenshot of  Program](https://i.imgur.com/31QyNE5.png)
 
 ## Installation
 
